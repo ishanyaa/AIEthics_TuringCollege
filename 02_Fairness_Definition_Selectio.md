@@ -1,10 +1,10 @@
 # Fairness Definition Selection
 
-1. Purpose
+## 1. Purpose
 
 Fairness definitions capture the values a recommendation system aims to uphold. In e-commerce, fairness applies to both users (who receive equitable recommendations) and sellers (who receive equitable exposure). This component helps teams select appropriate fairness definitions based on historical risks, business goals, and technical feasibility.
 
-2. Relevant Fairness Definitions for Recommendation Systems
+## 2. Relevant Fairness Definitions for Recommendation Systems
 Exposure Fairness (Seller-Side)
 
 Ensures that groups of items or sellers receive exposure proportional to their relevance or demand. This helps counter popularity-driven imbalance.
@@ -16,7 +16,7 @@ Formally: equal true positive rates across groups for engagement labels (e.g., c
 
 Calibration
 
-Recommendation scores should reflect the true likelihood of engagement across all user groups. A predicted engagement score should have the same meaning regardless of the user segment.
+Recommendation scores should reflect the true likelihood of engagement across all user groups. A predicted engagement score should have the same meaning across all user segments.
 
 Demographic Parity (Monitoring Only)
 
@@ -26,7 +26,7 @@ Individual Fairness
 
 Users with similar behavioural profiles should receive similar recommendation sets. Evaluated through embedding similarity or neighbourhood-based comparisons.
 
-3. Decision Workflow
+## 3. Decision Workflow
 
 Identify who the fairness obligations apply to:
 
@@ -56,7 +56,7 @@ Add calibration and equal opportunity checks across language and region groups
 
 Include intersectional combinations wherever feasible
 
-4. Final Selection for E-Commerce Case Study
+## 4. Final Selection for E-Commerce Case Study
 
 Primary fairness definitions:
 
