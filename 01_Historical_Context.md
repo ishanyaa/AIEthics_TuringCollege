@@ -2,59 +2,83 @@
 
 ## 1. Purpose
 
-Personalisation systems have long been critiqued for amplifying structural inequities:
-
--Large sellers receive disproportionate visibility (“rich-get-richer feedback loops”).
--Underrepresented creators struggle to surface.
--Users with historically marginalised demographics receive fewer high-value opportunities (discounts, deals, visibility).
--Recommendation pipelines often rely on behavioural signals shaped by unequal access, digital literacy, socioeconomic status, and linguistic diversity.
--Understanding these patterns is the first step toward building fairer systems.
+Personalised recommendation systems in e-commerce have historically reinforced structural inequities. Several patterns consistently appear across platforms:
+Large or well-established sellers gain disproportionate visibility, creating “rich-get-richer” exposure loops.
+Underrepresented or niche creators struggle to surface in recommendations.
+Users from marginalised demographics often receive fewer high-value opportunities such as discounts or personalised promotions.
+Behavioural signals used for ranking frequently reflect unequal access, digital literacy gaps, socioeconomic divides, and linguistic constraints.
+Identifying these historical patterns is crucial for designing a more equitable recommendation pipeline. This assessment sets the foundation for later fairness definition selection, bias tracing, and metric evaluation.
 
 ## 2. Structured Questionnaire
-A. Domain & Application Context
 
-What product/service does the recommendation system power?
-Who are the users? (shoppers, creators, sellers)
-What decisions does the model influence?
-Who is most harmed by incorrect or unfair ranking?
-What regulatory or platform policies apply? (EU AI Act, platform fairness commitments)
+A. Domain & Application Context
+What product or service does the recommendation system support?
+Who are the primary users (shoppers, creators, sellers)?
+What decisions does the model influence (ranking, search suggestions, promotions, discount allocation)?
+Who is most harmed when recommendations are incorrect or unfair?
+What regulatory or platform-level policies apply (EU AI Act, marketplace fairness policies, accessibility standards)?
 
 B. Historical Discrimination Patterns
-
-Has the domain historically favoured certain sellers or content creators?
-Are there known disparities in exposure between:
--Small vs large sellers?
--Newcomer vs established sellers?
--linguistic communities?
--user demographics?
-Are there protected groups indirectly referenced through proxies (ZIP code, language, spending power)?
+Has the platform historically favoured certain seller segments (large brands, premium sellers, early adopters)?
+Are there known disparities in exposure across:
+small vs large sellers
+newcomer vs established sellers
+linguistic communities
+demographic groups
+Are protected groups indirectly referenced through proxy features such as:
+region or ZIP code
+language metadata
+device type
+spending power or purchase history
 
 C. Intersectional Risks
 
-Are certain groups doubly disadvantaged? e.g., small sellers in low-income regions, women-led businesses with low visibility, and users browsing in low-resource languages.
-Does the platform support accessibility (screen readers, low-bandwidth users)? If not, who is excluded?
+Are any groups facing compounded disadvantages, such as:
+small sellers in low-income regions
+women-led micro-businesses
+sellers producing content in low-resource languages
+Does the platform support accessibility needs such as screen readers, low-bandwidth usage, and alternative input modes?
+If not, which segments are excluded?
 
 D. Mapping Historical Patterns onto ML Components
-ML Component	Potential Historical Bias
-Data logs	Underexposure of minority sellers → sparse signals
-Feature engineering	Price, delivery region, past impressions → encode socioeconomic inequality
-Objectives	: Click-through optimisation rewards popularity, not fairness
-Sampling	Long-tail sellers rarely sampled → poor model performance
-Deployment	Exploration budgets favour profitable segments
+
+Data logs: Underexposure of minority sellers leading to weak or sparse learning signals
+Feature engineering: Variables such as price, delivery region, and impressions may encode socioeconomic inequality
+Objectives: Click-through–focused optimisation tends to reward popularity rather than fairness
+Sampling: Long-tail sellers are rarely sampled during training, reducing model generalisation
+Deployment: Exploration budgets often prioritise profitable or popular segments
+
 3. Risk Scoring Matrix
-Historical Pattern	Severity	Likelihood	Relevance	Priority
-“Rich-get-richer” exposure bias	3	3	3	9
-Underrepresentation of regional languages	3	2	3	8
-Intersectional disadvantage (women-led micro-businesses)	3	2	2	7
-Bias toward premium/high-income segments	2	3	3	8
+
+Historical Pattern: “Rich-get-richer” exposure bias
+Severity: 3
+Likelihood: 3
+Relevance: 3
+Priority: 9
+
+Historical Pattern: Underrepresentation of regional languages
+Severity: 3
+Likelihood: 2
+Relevance: 3
+Priority: 8
+
+Historical Pattern: Intersectional disadvantage (women-led micro-businesses)
+Severity: 3
+Likelihood: 2
+Relevance: 2
+Priority: 7
+
+Historical Pattern: Bias toward premium or high-income market segments
+Severity: 2
+Likelihood: 3
+Relevance: 3
+Priority: 8
+
 4. Output
 
-A Historical Risk Profile summarising:
+The Historical Context Assessment delivers a clear Historical Risk Profile summarising:
 
-vulnerable seller/user segments
-
-proxies likely to encode harm
-
-fairness-sensitive features
-
-deployment phases where harm is most likely to appear
+Seller and user groups most vulnerable to unfair recommendations
+Proxy variables likely to encode demographic or socioeconomic disadvantage
+Features and model components that require special attention
+Deployment phases where unfair exposure patterns are most likely to appear
